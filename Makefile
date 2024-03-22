@@ -7,6 +7,7 @@ chime: clean
 	cp ../chime-agent/bin/chime-agent output/chime
 	cp ../chime-agent/conf/agent.yaml output/chime
 	cp install.sh output/
+	cp uninstall.sh output/chime
 #	cp ../chime-adm/bin/chimeadm ./chime
 	@sleep 1
 	tar -czvf output/chime.tgz output/chime

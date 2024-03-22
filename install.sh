@@ -31,6 +31,7 @@ cp chime/chime-server /usr/bin/
 cp chime/server.yaml /etc/chime/
 cp chime/chime-agent /usr/bin/
 cp chime/agent.yaml /etc/chime/
+cp chime/uninstall.sh /var/lib/chime/
 #cp chime/chimeadm /usr/bin/
 
 rm -rf chime
