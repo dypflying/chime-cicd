@@ -16,7 +16,7 @@ echo -e "\t ready for installing chime package ..."
 
 sed -n -e '1,/^exit 0$/!p' $0 > ${TEMPFILE} 2>/dev/null
 
-tar xzf ${TEMPFILE} -C /tmp
+tar xzf ${TEMPFILE} --strip-components 1 -C /tmp
 
 rm -f ${TEMPFILE}
 
