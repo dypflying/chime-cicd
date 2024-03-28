@@ -6,10 +6,10 @@ chime: clean
 	cp ../chime-server/conf/server.yaml output/chime
 	cp ../chime-agent/bin/chime-agent output/chime
 	cp ../chime-agent/conf/agent.yaml output/chime
+	cp ../chime-adm/bin/chimeadm output/chime
 	cp install.sh output/
 	cp uninstall.sh output/chime
-#	cp ../chime-adm/bin/chimeadm ./chime
-	@sleep 1
+	@sleep 2
 	tar -czvf output/chime.tgz output/chime
 	cat output/install.sh output/chime.tgz > output/chime.bin 
 	@chmod +x output/chime.bin 
