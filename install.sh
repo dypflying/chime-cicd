@@ -23,17 +23,20 @@ cd /tmp
 echo -e "\t initiating directories ..."
 mkdir -p /var/log/chime
 mkdir -p /var/lib/chime
+mkdir -p /var/lib/chime/server
+mkdir -p /var/lib/chime/uploads
+mkdir -p /var/lib/chime/portal/uploads
 mkdir -p /etc/chime
 
 #copy files 
 echo -e "\t installing binaries ..."
+cp chime/chimeadm /usr/bin/
 cp chime/chime-server /usr/bin/
 cp chime/server.yaml /etc/chime/
 cp chime/chime-agent /usr/bin/
 cp chime/agent.yaml /etc/chime/
 cp chime/uninstall.sh /var/lib/chime/
-chmod +x /var/lib/chime/uninstall.sh
-#cp chime/chimeadm /usr/bin/
+chmod 755 /var/lib/chime/uninstall.sh
 
 rm -rf chime
 echo -e "\t chime installed!"
