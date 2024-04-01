@@ -2,9 +2,9 @@
 
 #uninstall old versions
 if [ -f "/var/lib/chime/uninstall.sh" ]; then
-	echo "uninstalling legacy chime versions ..."
-	/var/lib/chime/uninstall.sh
-	echo "chime legacy version uninstalled"
+	echo -e "\t uninstalling legacy chime versions ..."
+	/var/lib/chime/uninstall.sh "$1" 
+	echo -e "\t ***** chime legacy version uninstalled ***** "
 	echo ""
 fi
 
@@ -26,18 +26,31 @@ mkdir -p /var/lib/chime
 mkdir -p /var/lib/chime/server
 mkdir -p /var/lib/chime/uploads
 mkdir -p /var/lib/chime/portal/uploads
+mkdir -p /var/lib/chime/agent/cloudinit
 mkdir -p /etc/chime
 
 #copy files 
 echo -e "\t installing binaries ..."
 cp chime/chimeadm /usr/bin/
 cp chime/chime-server /usr/bin/
-cp chime/server.yaml /etc/chime/
 cp chime/chime-agent /usr/bin/
-cp chime/agent.yaml /etc/chime/
+if [ -f /etc/chime/agent.yaml ]; then 
+    if [ "--force" == "$1" ]; then 
+	    cp chime/agent.yaml /etc/chime/
+	fi
+else 
+    cp chime/agent.yaml /etc/chime/
+fi 
+if [ -f /etc/chime/server.yaml ]; then 
+    if [ "--force" == "$1" ]; then 
+	    cp chime/server.yaml /etc/chime/
+	fi
+else 
+    cp chime/server.yaml /etc/chime/
+fi 
 cp chime/uninstall.sh /var/lib/chime/
 chmod 755 /var/lib/chime/uninstall.sh
 
 rm -rf chime
-echo -e "\t chime installed!"
+echo -e "\t ***** chime installed successfully ***** !"
 exit 0

@@ -1,14 +1,12 @@
 #!/bin/bash 
 
-#delete the chime home 
-rm -rf /var/lib/chime
-
-#backup the configuration file
-if [ -f /etc/chime/server.yaml ]; then 
-    mv /etc/chime/server.yaml /etc/chime/server.yaml_bak
-fi
-if [ -f /etc/chime/agent.yaml ]; then 
-    mv /etc/chime/agent.yaml /etc/chime/agent.yaml_bak
+if [ "--force" == "$1" ]; then 
+    #delete the /var/lib/chime
+    rm -rf /var/lib/chime
+    rm -rf /etc/chime
+else 
+    #delete the runtime  
+    rm -f /var/lib/chime/*runtime
 fi
 
 #delete binaries
