@@ -34,6 +34,12 @@ echo -e "\t installing binaries ..."
 cp chime/chimeadm /usr/bin/
 cp chime/chime-server /usr/bin/
 cp chime/chime-agent /usr/bin/
+cp chime/chimecli /usr/bin/
+
+#copy systemd files
+cp chime/chime-server.service /usr/lib/systemd/system/
+cp chime/chime-agent.service /usr/lib/systemd/system/
+systemctl daemon-reload
 if [ -f /etc/chime/agent.yaml ]; then 
     if [ "--force" == "$1" ]; then 
 	    cp chime/agent.yaml /etc/chime/
