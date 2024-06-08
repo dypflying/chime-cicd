@@ -1,0 +1,35 @@
+chime-agent:
+    enabled: true
+    heartbeat-server:
+        bind-addr: 127.0.0.1
+        interval: 10
+        port: 8802
+    host:
+        manage-ip: 127.0.0.1
+        name: chime1
+        node-ip: ""
+        rack-name: rack1
+        storage-ip: ""
+        uuid: b88c944f-9b88-4a3c-a004-4c3e29f1f8c1
+    influxdb:
+        bucket: chime
+        org: chime
+        real_endpoints: http://127.0.0.1:8086
+        token: hshuKMUoyEyfjl-aWwd_PS1oRNTL2LhwyaZhTLuJink63BsqM-QoV4qJ-IYtbnTCMBM8wG0FjX7wW4JPF-RiMg==
+        vip_endpoint: http://127.0.0.1:8086
+    log:
+        filename: /var/log/chime/agent.log
+        level: info
+        maxage: 172
+        rotatetime: 1
+    s3:
+        ak: minioadmin
+        endpoint: 127.0.0.1:9000
+        sk: minioadmin
+        use-ssl: false
+    service:
+        bind-addr: 0.0.0.0
+        max-header-bytes: 1048576
+        port: 8811
+        read-timeout: 5
+        write-timeout: 5

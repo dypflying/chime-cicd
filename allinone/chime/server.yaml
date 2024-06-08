@@ -1,0 +1,57 @@
+chime-portal:
+    api-url: 127.0.0.1:8801
+    bind-addr: 0.0.0.0
+    db:
+        db-name: portal
+        driver: mysql
+        host: 127.0.0.1
+        password: chime
+        port: 3306
+        user: chime
+    file-upload-dir: /var/lib/chime/portal/uploads
+    log:
+        filename: /var/log/chime/portal.log
+        level: info
+        maxage: 172
+        rotatetime: 1
+    port: 8033
+    prefix: /v1
+chime-server:
+    api-service:
+        bind-addr: 0.0.0.0
+        max-header-bytes: 1048576
+        port: 8801
+        read-timeout: 5
+        write-timeout: 5
+    db:
+        dialect: mysql
+        max-lifetime: 1800000
+        max-pool-size: 20
+        min-idle: 5
+        uri: chime:chime@tcp(127.0.0.1:3306)/chime?charset=utf8mb4&parseTime=True&autocommit=true
+    dhcp:
+        lease_time: 800
+        renew_time: 700
+        server_addr: 0.0.0.0
+    heartbeat-service:
+        bind-addr: 0.0.0.0
+        port: 8802
+        service-addr: 127.0.0.1
+    influxdb:
+        bucket: chime
+        org: chime
+        real_endpoints: http://127.0.0.1:8086
+        token: hshuKMUoyEyfjl-aWwd_PS1oRNTL2LhwyaZhTLuJink63BsqM-QoV4qJ-IYtbnTCMBM8wG0FjX7wW4JPF-RiMg==
+        vip_endpoint: http://127.0.0.1:8086
+    ip_protocal: static
+    log:
+        filename: /var/log/chime/server.log
+        level: info
+        maxage: 172
+        rotatetime: 1
+    s3:
+        ak: minioadmin
+        endpoint: 127.0.0.1:9000
+        path: ""
+        sk: minioadmin
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVdWlkIjoiMGZhYjZkYTQtYmU4Zi00ZGJhLTlhYzgtMTlmNGZmNTE5ZjM0IiwiYXVkIjoiY2hpbWUiLCJleHAiOjE3MTE3OTc0OTYsImlhdCI6MTcxMTc5NzQ5NiwiaXNzIjoiY2hpbWUiLCJzdWIiOiJjaGltZSJ9.DpCskpkyEHodbxPbj061iLMw1n04ibjZQ8qj5o0lRTA
