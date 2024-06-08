@@ -9,24 +9,23 @@ mkdir -p /soft/centos
 rsync -a /mnt/cdrom/ /soft/centos
 
 3. 拷贝文件到 /soft/centos 
-mdkir -p /soft/centos/packages/chime
-mdkir -p /soft/centos/packages/mysql 
 mdkir -p /soft/centos/packages/influxdb
 mdkir -p /soft/centos/packages/minio 
 
 #1 更新阿里云yum源
-cp /etc/yum.repos.d/CentOS-Base.repo /soft/centos/packages
+scp allinone/CentOS-Base.repo centos-cicd:/soft/centos/packages
 
-#2 拷贝mysql初始化文件(mysql初始root用户密码为空)
-scp allinone/chime.sql  centos-cicd:/soft/centos/packages/mysql 
-
-#3 拷贝influxdb安装程序
+#2 拷贝influxdb安装程序
 scp packages/influxdb/* centos-cicd:/soft/centos/packages/influxdb
 
-#4 拷贝minio
+#3 拷贝minio
 cp /etc/default/minio /soft/centos/packages/minio 
-scp packages/minio/minio.rpm centos-cicd:/soft/centos/packages/minio 
+scp packages/minio/minio.rpm centos-cicd:/soft/centos/packages/minio
+scp packages/minio/minio.service centos-cicd:/soft/centos/packages/minio 
 cp -R /mnt/minio /soft/centos/packages/minio/data
+
+#4 拷贝chime_allinone.bin 
+scp output/chime_allinone.bin centos-cicd:/soft/centos/packages
 
 4. 拷贝ks.cfg 
 scp allinone/ks.cfg centos-cicd:/soft/centos/isolinux/

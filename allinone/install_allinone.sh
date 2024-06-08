@@ -20,6 +20,8 @@ mkdir -p /var/lib/chime/uploads
 mkdir -p /var/lib/chime/portal/uploads
 mkdir -p /var/lib/chime/agent/cloudinit
 mkdir -p /etc/chime
+mkdir -p /mnt/local/backend/volumes
+mkdir -p /mnt/local/cache
 
 #copy files 
 echo -e "\t installing binaries ..."
@@ -53,7 +55,7 @@ cp allinone/librados.so.2.0.0 /lib64/
 ln -sf /lib64/librados.so.2.0.0 /lib64/librados.so.2 
 ln -sf /lib64/librados.so.2 /lib64/librados.so
 cp allinone/librbd.so.1.17.0 /lib64/
-ln -sf /lib64/librbd.so.1.17.0 librbd.so.1 
+ln -sf /lib64/librbd.so.1.17.0 /lib64/librbd.so.1 
 cp allinone/libceph-common.so.2 /lib64/ceph/
 ln -sf /lib64/ceph/libceph-common.so.2 /lib64/ceph/libceph-common.so
 

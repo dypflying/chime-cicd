@@ -718,7 +718,7 @@ CREATE TABLE `t_network` (
 
 LOCK TABLES `t_network` WRITE;
 /*!40000 ALTER TABLE `t_network` DISABLE KEYS */;
-INSERT INTO `t_network` VALUES ('1ad0df39-c9ee-41b5-9ac3-4fbdee92b761','4a28bf21-1600-40e5-924f-5c03c7f76d4f','d42d3779-e25d-45fd-b7a0-7c36fdd89496','chime-bridge',0,'',1,'eth0','','2024-06-05 13:35:33','2024-06-07 03:15:35');
+INSERT INTO `t_network` VALUES ('1ad0df39-c9ee-41b5-9ac3-4fbdee92b761','4a28bf21-1600-40e5-924f-5c03c7f76d4f','d42d3779-e25d-45fd-b7a0-7c36fdd89496','chime-bridge',0,'',1,'eth1','','2024-06-05 13:35:33','2024-06-07 03:15:35');
 /*!40000 ALTER TABLE `t_network` ENABLE KEYS */;
 UNLOCK TABLES;
 
